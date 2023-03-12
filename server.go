@@ -8,7 +8,7 @@ import (
 	"golang.org/x/net/context"
 	"google.golang.org/grpc/xds"
 
-	echo "github.com/UWNetworksLab/meshinsight/meshinsight/profiler/benchmark/echo_server_grpc_proxyless/pb"
+	echo "github.com/Romero027/echo-grpc-proxyless/pb"
 )
 
 type server struct {

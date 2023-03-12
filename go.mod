@@ -1,4 +1,4 @@
-module github.com/UWNetworksLab/meshinsight/meshinsight/profiler/benchmark/echo_server_grpc_proxyless
+module github.com/Romero027/echo-grpc-proxyless
 
 go 1.18
 

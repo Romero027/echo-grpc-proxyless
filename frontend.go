@@ -9,7 +9,7 @@ import (
 	"google.golang.org/grpc"
 	_ "google.golang.org/grpc/xds"
 
-	echo "github.com/UWNetworksLab/meshinsight/meshinsight/profiler/benchmark/echo_server_grpc_proxyless/pb"
+	echo "github.com/Romero027/echo-grpc-proxyless/pb"
 )
 
 func handler(writer http.ResponseWriter, request *http.Request) {
