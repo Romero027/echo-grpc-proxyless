@@ -33,7 +33,7 @@ func handler(writer http.ResponseWriter, request *http.Request) {
 		log.Fatalf("Erro when calling echo: %s", err)
 	}
 	log.Printf("Response from server: %s", response.Body)
-	fmt.Fprintf(writer, "Echo request finished! Length of the request is %d\n", len(response.Body))
+	fmt.Fprintf(writer, "[Echo v2] Echo request finished! Length of the request is %d\n", len(response.Body))
 }
 
 func main() {

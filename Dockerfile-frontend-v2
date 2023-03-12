@@ -5,7 +5,7 @@ WORKDIR /echoserver
 COPY . ./
 
 RUN go mod download
-RUN go build -o /frontend frontend.go
+RUN go build -o /frontend frontend-v2.go
 
 EXPOSE 8080
 
