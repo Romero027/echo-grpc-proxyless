@@ -14,23 +14,50 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: echo-frontend
+  name: echo-frontend-v1
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: echo-frontend
+      version: v1
   template:
     metadata:
       annotations:
         inject.istio.io/templates: grpc-agent
-      name: echo-frontend
+        proxy.istio.io/config: '{"holdApplicationUntilProxyStarts": true}'
+      name: echo-frontend-v1
       labels:
         app: echo-frontend
+        version: v1
     spec:
       containers:
-      - image: xzhu0027/echo-frontend-grpc-proxyless
-        name: echo-frontend-grpc-proxyless
+      - image: xzhu0027/echo-frontend-v1-grpc-proxyless
+        name: echo-frontend-v1-grpc-proxyless
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-frontend-v2
+spec:
+  replicas: 1
   selector:
     matchLabels:
       app: echo-frontend
+      version: v2
+  template:
+    metadata:
+      annotations:
+        inject.istio.io/templates: grpc-agent
+        proxy.istio.io/config: '{"holdApplicationUntilProxyStarts": true}'
+      name: echo-frontend-v2
+      labels:
+        app: echo-frontend
+        version: v2
+    spec:
+      containers:
+      - image: xzhu0027/echo-frontend-v2-grpc-proxyless
+        name: echo-frontend-v2-grpc-proxyless
 ---
 apiVersion: v1
 kind: Service
