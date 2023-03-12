@@ -4,10 +4,9 @@ WORKDIR /echoserver
 
 COPY . ./
 
-
 RUN go mod download
-RUN go build -o /server server.go
+RUN go build -o /frontend frontend.go
 
-EXPOSE 9000
+EXPOSE 8080
 
-CMD ["/server"]
+CMD [ "/frontend" ]

@@ -15,9 +15,13 @@ type server struct {
 	echo.UnimplementedEchoServiceServer
 }
 
-func (s *server) Echo(ctx context.Context, x *echo.Msg) (*echo.Msg, error) {
-	log.Printf("got: [%s]", x.GetBody())
-	return x, nil
+func (s *server) Echo(ctx context.Context, x *echo.EchoRequest) (*echo.EchoResponse, error) {
+	log.Printf("got: [%s]", x.GetReq())
+	echoResponse := &echo.EchoResponse{
+		Res:     x.GetReq(),
+		Version: 1,
+	}
+	return echoResponse, nil
 }
 
 func main() {
